@@ -1,0 +1,13 @@
+services:
+  ml:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    network_mode: host
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
